@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        SimulationFrame window = new SimulationFrame();
+        SimulationFrame frame = new SimulationFrame();
         SimulationPanel panel = new SimulationPanel();
-        window.add(panel);
-        window.setVisible(true);
+        frame.add(panel);
+        frame.setVisible(true);
 
         new SimulationPresenter(panel);
     }
