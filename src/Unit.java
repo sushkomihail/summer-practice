@@ -1,16 +1,17 @@
 import java.awt.*;
 
 public class Unit {
-    private final Vector position;
     private Vector targetPosition;
     private Vector moveDirection;
-    private Virus virus;
-    private float sneezeAccumulator;
+    protected Vector position;
+    protected Color unitColor;
 
     private static final float SPEED = 50;
+    protected static final int UNIT_RADIUS = 8;
 
     public Unit() {
-        position = SimulationPanel.getRandomPosition();
+        unitColor = new Color(64, 64, 64);
+        position = SimulationPanel.getInstance().getRandomPosition();
         targetPosition = position;
     }
 
@@ -18,23 +19,25 @@ public class Unit {
         return position;
     }
 
-    public Virus getVirus() {
-        return virus;
+    public Vector getTargetPosition() {
+        return targetPosition;
     }
 
-    public void setVirus(Virus virus) {
-        this.virus = virus;
+    public Vector getMoveDirection() {
+        return moveDirection;
     }
 
-    public boolean isInfected() {
-        return virus != null;
+    public void copyMovement(Unit sourceUnit) {
+        targetPosition = sourceUnit.getTargetPosition();
+        moveDirection = sourceUnit.getMoveDirection();
+        position = sourceUnit.getPosition();
     }
 
     public void move(float deltaTime) {
         float distanceToTargetPosition = Vector.getDistance(position, targetPosition);
 
         if (distanceToTargetPosition <= 0.5f) {
-            targetPosition = SimulationPanel.getRandomPosition();
+            targetPosition = SimulationPanel.getInstance().getRandomPosition();
             moveDirection = Vector.subtract(targetPosition, position).normalize();
         }
 
@@ -44,30 +47,10 @@ public class Unit {
         position.setY(position.getY() + deltaY);
     }
 
-    public boolean trySneeze(float deltaTime) {
-        if (!isInfected()) {
-            return false;
-        }
-
-        sneezeAccumulator += deltaTime;
-        return sneezeAccumulator >= virus.getSneezingInterval();
-    }
-
     public void draw(Graphics2D graphics) {
-        int x;
-        int y;
-
-        if (isInfected()) {
-            graphics.setColor(Config.VIRUS_COLOR);
-            x = (int) (position.getX() - virus.getInfectionRadius());
-            y = (int) (position.getY() - virus.getInfectionRadius());
-            graphics.fillOval(x, y, virus.getInfectionRadius() * 2, virus.getInfectionRadius() * 2);
-            graphics.setColor(Config.INFECTED_UNIT_COLOR);
-        }
-
-        x = (int) (position.getX() - Config.UNIT_DIAMETER / 2);
-        y = (int) (position.getY() - Config.UNIT_DIAMETER / 2);
-        graphics.fillOval(x, y, Config.UNIT_DIAMETER, Config.UNIT_DIAMETER);
-        graphics.setColor(Config.UNIT_COLOR);
+        int x = (int) (position.getX() - UNIT_RADIUS);
+        int y = (int) (position.getY() - UNIT_RADIUS);
+        graphics.setColor(unitColor);
+        graphics.fillOval(x, y, UNIT_RADIUS * 2, UNIT_RADIUS * 2);
     }
 }

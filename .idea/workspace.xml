@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added random movement of units">
-      <change afterPath="$PROJECT_DIR$/src/Virus.java" afterDir="false" />
+    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added infection of units">
+      <change afterPath="$PROJECT_DIR$/src/InfectedUnit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RecoveredUnit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParametersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParametersPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SimulationFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulationPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SimulationPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Virus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716355653014</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added infection of units">
+      <created>1716728159464</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716728159464</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,6 +104,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First commit" />
     <MESSAGE value="Added random movement of units" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added random movement of units" />
+    <MESSAGE value="Added infection of units" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added infection of units" />
   </component>
 </project>

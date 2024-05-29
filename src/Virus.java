@@ -1,25 +1,22 @@
-import java.awt.*;
-
 public class Virus {
-    private int infectionRadius;
-    private int sneezingInterval;
-    private float infectionProbability;
-
-    public Virus(int infectionRadius, int sneezingInterval, float infectionProbability) {
-        this.infectionRadius = infectionRadius;
-        this.sneezingInterval = sneezingInterval;
-        this.infectionProbability = infectionProbability;
-    }
+    private int infectionRadius = 30;
+    private float infectionInterval = 0.5f;
+    private float infectionProbability = 0.5f;
+    private float recoveryTime = 4;
 
     public int getInfectionRadius() {
         return infectionRadius;
     }
 
-    public int getSneezingInterval() {
-        return sneezingInterval;
+    public float getInfectionInterval() {
+        return infectionInterval;
     }
 
     public float getInfectionProbability() {
         return infectionProbability;
+    }
+
+    public float getRecoveryTime() {
+        return recoveryTime;
     }
 }
