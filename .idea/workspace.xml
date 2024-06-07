@@ -4,15 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added infection of units">
-      <change afterPath="$PROJECT_DIR$/src/InfectedUnit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RecoveredUnit.java" afterDir="false" />
+    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added recovery of units">
+      <change afterPath="$PROJECT_DIR$/src/DrawingPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FixedLengthDocument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InfectedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Isolation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IsolationPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RecoveredState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SocietyPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UIExtensions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UninfectedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UnitSettingsPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UnitState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UnitsManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/VirusSettingsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfectedUnit.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ParametersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParametersPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RecoveredUnit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SimulationFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulationPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Unit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Virus.java" afterDir="false" />
     </list>
@@ -24,6 +37,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -86,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716728159464</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added recovery of units">
+      <created>1716999936887</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716999936887</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,6 +126,7 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="Added random movement of units" />
     <MESSAGE value="Added infection of units" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added infection of units" />
+    <MESSAGE value="Added recovery of units" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added recovery of units" />
   </component>
 </project>

@@ -12,7 +12,6 @@ public class Main {
 
     public static void main(String[] args) {
         trySetSystemTheme();
-        new SimulationFrame();
         new Simulation();
     }
 }

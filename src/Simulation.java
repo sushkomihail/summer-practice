@@ -1,72 +1,102 @@
+import java.util.Iterator;
+
 public class Simulation implements Runnable {
-    private final Virus virus = new Virus();
+    private DrawingPanel societyPanel;
+    private DrawingPanel isolationPanel;
+
+    private Virus virus;
+    private Unit unit;
     private int population = 100;
-    private float unitMoveSpeed = 1F;
-    private boolean isRunning = true;
-
-    public Unit[] units;
-
-    private static Simulation instance;
+    private boolean useDistancing = false;
+    private boolean useIsolation = true;
+    private boolean isRunning = false;
+    private Thread simulationThread;
 
     public Simulation() {
+        initializeModels();
+        initializeView();
         createPopulation();
-        new Thread(this).start();
-        instance = this;
     }
 
-    public static Simulation getInstance() {
-        if (instance == null) {
-            instance = new Simulation();
-        }
+    private void initializeModels() {
+        virus = new Virus();
+        unit = new Unit(virus);
+    }
 
-        return instance;
+    private void initializeView() {
+        societyPanel = new SocietyPanel(UnitsManager.getInstance().getUnits());
+        isolationPanel = new IsolationPanel(UnitsManager.getInstance().getUnits());
+        new SimulationFrame(
+                societyPanel,
+                isolationPanel,
+                new ParametersPanel(this, new UnitSettingsPanel(unit), new VirusSettingsPanel(virus))
+        );
+    }
+
+    public boolean useIsolation() {
+        return useIsolation;
+    }
+
+    public Virus getVirus() {
+        return virus;
+    }
+
+    public Unit getUnit() {
+        return unit;
     }
 
     private void createPopulation() {
-        units = new Unit[population];
+        UnitsManager.getInstance().getUnits().clear();
+        UnitsManager.getInstance().getUnits().clear();
 
         for (int i = 0; i < population - 1; i++) {
-            units[i] = new Unit();
+            Unit newUnit = unit.clone();
+            newUnit.setDrawingPanel(societyPanel);
+            newUnit.setState(new UninfectedState(newUnit));
+            UnitsManager.getInstance().getUnits().add(newUnit);
         }
 
-        units[population - 1] = new InfectedUnit(virus);
-    }
-
-    private void tryInfect(Vector carrierPosition) {
-        for (int i = 0; i < population; i++) {
-            if (units[i] instanceof InfectedUnit || units[i] instanceof RecoveredUnit) {
-                continue;
-            }
-
-            float distanceToCarrier = Vector.getDistance(carrierPosition, units[i].getPosition());
-
-            if (distanceToCarrier <= virus.getInfectionRadius()) {
-                float infectionProbability = (float) Math.random();
-
-                if (infectionProbability <= virus.getInfectionProbability()) {
-                    InfectedUnit infectedUnit = new InfectedUnit(virus);
-                    infectedUnit.copyMovement(units[i]);    // ...
-                    units[i] = infectedUnit;
-                }
-            }
-        }
+        Unit infectedUnit = unit.clone();
+        infectedUnit.setDrawingPanel(societyPanel);
+        infectedUnit.setState(new InfectedState(infectedUnit, isolationPanel));
+        UnitsManager.getInstance().getUnits().add(infectedUnit);
     }
 
     private void update(float deltaTime) {
-        for (int i = 0; i < population; i++) {
-            units[i].move(deltaTime);
+        for (Unit unit : UnitsManager.getInstance().getUnits()) {
+            unit.updateState(deltaTime);
+        }
+    }
 
-            if (units[i] instanceof InfectedUnit infectedUnit) {
-                if (infectedUnit.canInfect(deltaTime)) {
-                    tryInfect(infectedUnit.getPosition());
-                }
+    private void repaint() {
+        societyPanel.repaint();
 
-                if (infectedUnit.tryRecover(deltaTime)) {
-                    RecoveredUnit recoveredUnit = new RecoveredUnit();
-                    recoveredUnit.copyMovement(units[i]);
-                    units[i] = recoveredUnit;
-                }
-            }
+        if (useIsolation) {
+            isolationPanel.repaint();
+        }
+    }
+
+    public void start() {
+        createPopulation();
+        isRunning = true;
+
+        if (simulationThread == null || simulationThread.isInterrupted()) {
+            simulationThread = new Thread(this);
+        }
+
+        simulationThread.start();
+    }
+
+    public void stop() {
+        isRunning = false;
+        simulationThread.interrupt();
+    }
+
+    public void reset() {
+        societyPanel.repaint();
+
+        if (useIsolation) {
+            isolationPanel.repaint();
         }
     }
 
@@ -74,21 +104,17 @@ public class Simulation implements Runnable {
         return isRunning;
     }
 
-    public void setRunning(boolean isRunning) {
-        this.isRunning = isRunning;
-    }
-
     @Override
     public void run() {
         long previousTime = System.nanoTime();
 
-        while (isRunning){
+        while (isRunning) {
             long currentTime = System.nanoTime();
             long deltaTime = currentTime - previousTime;
 
             if (deltaTime >= Config.TARGET_TIME_BETWEEN_FRAMES) {
                 update(deltaTime / 1000000000.0f);
-                SimulationPanel.getInstance().repaint();
+                repaint();
                 previousTime = currentTime;
             }
         }
