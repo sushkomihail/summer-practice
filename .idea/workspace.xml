@@ -4,30 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added recovery of units">
-      <change afterPath="$PROJECT_DIR$/src/DrawingPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FixedLengthDocument.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/InfectedState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Isolation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IsolationPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RecoveredState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SocietyPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIExtensions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UninfectedState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnitSettingsPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnitState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UnitsManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VirusSettingsPanel.java" afterDir="false" />
+    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added isolation area">
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/graphics/Graphics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/graphics/RenderObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/graphics/Renderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/math/Random.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/Fonts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedTextField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/ProbabilitySlider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/IsolationCanvas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/SocietyCanvas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InfectedUnit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParametersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParametersPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RecoveredUnit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulationFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Virus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/Canvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FixedLengthDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/FixedLengthDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfectedState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/InfectedState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Isolation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IsolationPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParametersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RecoveredState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/RecoveredState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SimulationFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SimulationPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SocietyPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIExtensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/UiExtensions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UninfectedState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/UninfectedState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnitSettingsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/UnitSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnitState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/UnitState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnitsManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/math/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/virus/Virus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VirusSettingsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/VirusSettings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +50,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -62,7 +74,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/AltSTU/summer_practice&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Java/GameEngine&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -107,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716999936887</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added isolation area">
+      <created>1717738465054</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717738465054</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,6 +146,7 @@
     <MESSAGE value="Added random movement of units" />
     <MESSAGE value="Added infection of units" />
     <MESSAGE value="Added recovery of units" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added recovery of units" />
+    <MESSAGE value="Added isolation area" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added isolation area" />
   </component>
 </project>

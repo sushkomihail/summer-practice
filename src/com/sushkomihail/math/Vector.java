@@ -1,11 +1,8 @@
+package com.sushkomihail.math;
+
 public class Vector {
     private float x;
     private float y;
-
-    public Vector() {
-        x = 0;
-        y = 0;
-    }
 
     public Vector(float x, float y) {
         this.x = x;
@@ -20,12 +17,9 @@ public class Vector {
         return y;
     }
 
-    public void setX(float x) {
-        this.x = x;
-    }
-
-    public void setY(float y) {
-        this.y = y;
+    public void move(float dx, float dy) {
+        x += dx;
+        y += dy;
     }
 
     public Vector normalize() {
@@ -36,14 +30,14 @@ public class Vector {
     }
 
     public static float getDistance(Vector a, Vector b) {
-        float deltaX = a.getX() - b.getX();
-        float deltaY = a.getY() - b.getY();
-        return (float) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        float dx = a.getX() - b.getX();
+        float dy = a.getY() - b.getY();
+        return (float) Math.sqrt(dx * dx + dy * dy);
     }
 
     public static Vector subtract(Vector a, Vector b) {
-        float x = a.getX() - b.getX();
-        float y = a.getY() - b.getY();
-        return new Vector(x, y);
+        float dx = a.getX() - b.getX();
+        float dy = a.getY() - b.getY();
+        return new Vector(dx, dy);
     }
 }

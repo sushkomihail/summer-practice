@@ -1,3 +1,7 @@
+package com.sushkomihail.unit;
+
+import com.sushkomihail.graphics.Graphics;
+
 import java.awt.*;
 
 public class UninfectedState implements UnitState {
@@ -10,13 +14,7 @@ public class UninfectedState implements UnitState {
     }
 
     @Override
-    public void update(float deltaTime) {
-        unit.move(deltaTime);
-    }
-
-    @Override
-    public void draw(Graphics2D graphics) {
-        graphics.setColor(UNIT_COLOR);
-        unit.draw(graphics);
+    public void render(Graphics2D graphics) {
+        Graphics.fillCircle(graphics, unit.getPosition(), unit.getRadius(), UNIT_COLOR);
     }
 }
