@@ -5,10 +5,6 @@ public class Random {
         return (float) (Math.random() * (max - min)) + min;
     }
 
-    public static int getInt(int min, int max) {
-        return (int) (Math.random() * (max - min)) + min;
-    }
-
     public static boolean isEventHappened(float probability) {
         return getFloat(0, 1) <= probability;
     }

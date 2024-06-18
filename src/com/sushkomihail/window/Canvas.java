@@ -20,8 +20,8 @@ public class Canvas extends JPanel {
 
     public Vector getRandomPositionInside(int unitRadius) {
         Dimension size = getSize();
-        int x = Random.getInt(unitRadius, size.width - unitRadius);
-        int y = Random.getInt(unitRadius, size.height - unitRadius);
+        int x = (int) Random.getFloat(unitRadius, size.width - unitRadius);
+        int y = (int) Random.getFloat(unitRadius, size.height - unitRadius);
         return new Vector(x, y);
     }
 

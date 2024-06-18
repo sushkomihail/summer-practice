@@ -1,6 +1,7 @@
 package com.sushkomihail.unit;
 
 import com.sushkomihail.graphics.RenderObject;
+import com.sushkomihail.math.Random;
 import com.sushkomihail.math.Vector;
 import com.sushkomihail.window.Canvas;
 import com.sushkomihail.window.UnitSettings;
@@ -9,6 +10,7 @@ import java.awt.*;
 
 public class Unit implements RenderObject {
     private static final int RADIUS = 8;
+    private static final int MAX_MOVE_DELTA = 20;
 
     private int speed = 50;
     private boolean isUsingDistancing;
@@ -37,10 +39,6 @@ public class Unit implements RenderObject {
         return RADIUS;
     }
 
-    public int getSpeed() {
-        return speed;
-    }
-
     public boolean isUsingDistancing() {
         return isUsingDistancing;
     }
@@ -51,10 +49,6 @@ public class Unit implements RenderObject {
 
     public Vector getPosition() {
         return position;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
     }
 
     public void setUsingDistancing(boolean isUsingDistancing) {
@@ -74,14 +68,22 @@ public class Unit implements RenderObject {
         this.movementCanvas = movementCanvas;
     }
 
+    private Vector calculateNextPosition() {
+        float angleInRadians = Random.getFloat(0, (float) (2 * Math.PI));
+        int dx = (int) (Math.cos(angleInRadians) * MAX_MOVE_DELTA);
+        int dy = (int) (Math.sin(angleInRadians) * MAX_MOVE_DELTA);
+        int x = (int) (position.getX() + dx + movementCanvas.getWidth()) % movementCanvas.getWidth();
+        int y = (int) (position.getY() + dy + movementCanvas.getHeight()) % movementCanvas.getHeight();
+        return new Vector(x, y);
+    }
+
     public void applySettings(UnitSettings settings) {
         speed = settings.getSpeed();
     }
 
     public void initializeMovement() {
         position = movementCanvas.getRandomPositionInside(RADIUS);
-        targetPosition = movementCanvas.getRandomPositionInside(RADIUS);
-        moveDirection = Vector.subtract(targetPosition, position).normalize();
+        targetPosition = position;
     }
 
     public void move(float deltaTime) {
@@ -92,7 +94,7 @@ public class Unit implements RenderObject {
         float distanceToTargetPosition = Vector.getDistance(position, targetPosition);
 
         if (distanceToTargetPosition <= 0.5f) {
-            targetPosition = movementCanvas.getRandomPositionInside(RADIUS);
+            targetPosition = calculateNextPosition();
             moveDirection = Vector.subtract(targetPosition, position).normalize();
         }
 

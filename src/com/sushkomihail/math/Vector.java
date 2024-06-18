@@ -9,6 +9,11 @@ public class Vector {
         this.y = y;
     }
 
+    public Vector(Vector vector) {
+        x = vector.x;
+        y = vector.y;
+    }
+
     public float getX() {
         return x;
     }
@@ -20,6 +25,12 @@ public class Vector {
     public void move(float dx, float dy) {
         x += dx;
         y += dy;
+    }
+
+    public Vector multiply(float a) {
+        x *= a;
+        y *= a;
+        return this;
     }
 
     public Vector normalize() {

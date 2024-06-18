@@ -31,7 +31,17 @@ public class Simulation implements Runnable {
     public Simulation() {
         window = new Window(this);
         unit = new Unit(window.getSocietyCanvas());
-        createPopulation();
+        //createPopulation();
+    }
+
+    private void applySettings(Settings settings) {
+        population = settings.getPopulation();
+        isIsolationUsed = settings.isIsolationUsed();
+        isolationProbability = settings.getIsolationProbability();
+        isDistancingUsed = settings.isDistancingUsed();
+        distancingProbability = settings.getDistancingProbability();
+        virus.applySettings(settings.getVirusSettings());
+        unit.applySettings(settings.getUnitSettings());
     }
 
     private void trySetUsingDistancing(Unit unit) {
@@ -62,36 +72,15 @@ public class Simulation implements Runnable {
     }
 
     private void spreadInfection(float deltaTime, InfectedState infectedUnit) {
+        if (infectedUnit.isIsolated()) {
+            return;
+        }
+
         for (Unit unit : units) {
             if (unit.getState() instanceof UninfectedState) {
                 infectedUnit.tryInfect(deltaTime, unit);
             }
         }
-    }
-
-    private void update(float deltaTime) {
-        for (Unit unit : units) {
-            unit.move(deltaTime);
-
-            if (unit.getState() instanceof InfectedState infectedUnit) {
-                if (isIsolationUsed) {
-                    infectedUnit.tryIsolate(deltaTime, window.getIsolationCanvas(), isolationProbability);
-                }
-
-                spreadInfection(deltaTime, infectedUnit);
-                infectedUnit.recover(deltaTime);
-            }
-        }
-    }
-
-    private void applySettings(Settings settings) {
-        population = settings.getPopulation();
-        isIsolationUsed = settings.isIsolationUsed();
-        isolationProbability = settings.getIsolationProbability();
-        isDistancingUsed = settings.isDistancingUsed();
-        distancingProbability = settings.getDistancingProbability();
-        virus.applySettings(settings.getVirusSettings());
-        unit.applySettings(settings.getUnitSettings());
     }
 
     private void start() {
@@ -107,6 +96,21 @@ public class Simulation implements Runnable {
         }
 
         simulationThread.start();
+    }
+
+    private void update(float deltaTime) {
+        for (Unit unit : units) {
+            unit.move(deltaTime);
+
+            if (unit.getState() instanceof InfectedState infectedUnit) {
+                if (isIsolationUsed) {
+                    infectedUnit.tryIsolate(deltaTime, window.getIsolationCanvas(), isolationProbability);
+                }
+
+                spreadInfection(deltaTime, infectedUnit);
+                infectedUnit.recover(deltaTime);
+            }
+        }
     }
 
     private void stop() {

@@ -19,8 +19,10 @@ public class Renderer {
     }
 
     public void render(Graphics2D graphics) {
-        for (RenderObject object : renderObjects) {
-            object.render(graphics);
+        ArrayList<RenderObject> renderObjectsCopy = new ArrayList<>(renderObjects);
+
+        for (RenderObject renderObject : renderObjectsCopy) {
+            renderObject.render(graphics);
         }
     }
 }
