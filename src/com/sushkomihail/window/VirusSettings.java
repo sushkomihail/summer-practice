@@ -6,11 +6,11 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 public class VirusSettings extends JPanel {
-    private final MaskedTextField infectionRadiusText = new MaskedTextField(2, "30", MaskType.INT.getMask());
-    private final MaskedTextField infectionIntervalText = new MaskedTextField(5, "0.5", MaskType.FLOAT.getMask());
+    private final MaskedTextField infectionRadiusText = new MaskedTextField(2, "30", Mask.INT.getMask());
+    private final MaskedTextField infectionIntervalText = new MaskedTextField(3, "0.5", Mask.FLOAT.getMask());
     private final ProbabilitySlider infectionProbabilitySlider = new ProbabilitySlider(0.5f);
-    private final MaskedTextField detectionTimeText = new MaskedTextField(5, "1", MaskType.FLOAT.getMask());
-    private final MaskedTextField recoveryTimeText = new MaskedTextField(5, "4", MaskType.FLOAT.getMask());
+    private final MaskedTextField detectionTimeText = new MaskedTextField(3, "1", Mask.FLOAT.getMask());
+    private final MaskedTextField recoveryTimeText = new MaskedTextField(3, "4", Mask.FLOAT.getMask());
 
     public VirusSettings() {
         TitledBorder border = new TitledBorder("Параметры вируса");

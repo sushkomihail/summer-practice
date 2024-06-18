@@ -8,7 +8,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class Settings extends JPanel {
-    private final MaskedTextField populationText = new MaskedTextField(3, "100", MaskType.INT.getMask());
+    private final MaskedTextField populationText = new MaskedTextField(3, "200", Mask.INT.getMask());
     private final JCheckBox isIsolationUsedBox = new JCheckBox("Карантин", false);
     private final ProbabilitySlider isolationProbabilitySlider = new ProbabilitySlider(0.7f);
     private final JCheckBox isDistancingUsedBox = new JCheckBox("Дистанцирование", false);

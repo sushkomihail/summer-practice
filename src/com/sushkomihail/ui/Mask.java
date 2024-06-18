@@ -1,8 +1,8 @@
 package com.sushkomihail.ui;
 
-public enum MaskType {
+public enum Mask {
     INT("^[0-9]+$"),
-    FLOAT("^[0-9]+((\\.|\\,)[0-9]+)?$");
+    FLOAT("^[0-9]+(\\.)?([0-9]+)?$");
 
     private final String mask;
 
@@ -10,7 +10,7 @@ public enum MaskType {
         return mask;
     }
 
-    MaskType(String mask) {
+    Mask(String mask) {
         this.mask = mask;
     }
 }

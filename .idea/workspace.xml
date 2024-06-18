@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added distancing">
+    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Fixed units infection in society area by units in isolation area">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/graphics/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/graphics/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/math/Random.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/math/Random.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/math/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/math/Vector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/InfectedState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/InfectedState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/Canvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/Canvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/FixedLengthDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/Mask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/UnitSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/UnitSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/VirusSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/VirusSettings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718622676304</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed units infection in society area by units in isolation area">
+      <created>1718704192938</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718704192938</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +137,7 @@
     <MESSAGE value="Added recovery of units" />
     <MESSAGE value="Added isolation area" />
     <MESSAGE value="Added distancing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added distancing" />
+    <MESSAGE value="Fixed units infection in society area by units in isolation area" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed units infection in society area by units in isolation area" />
   </component>
 </project>

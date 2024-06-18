@@ -1,7 +1,7 @@
 package com.sushkomihail.window;
 
 import com.sushkomihail.ui.Fonts;
-import com.sushkomihail.ui.MaskType;
+import com.sushkomihail.ui.Mask;
 import com.sushkomihail.ui.MaskedTextField;
 import com.sushkomihail.ui.UiExtensions;
 
@@ -9,7 +9,7 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 public class UnitSettings extends JPanel {
-    private final JTextField speedText = new MaskedTextField(3, "50", MaskType.INT.getMask());
+    private final JTextField speedText = new MaskedTextField(3, "50", Mask.INT.getMask());
 
     public UnitSettings() {
         TitledBorder border = new TitledBorder("Параметры юнита");
