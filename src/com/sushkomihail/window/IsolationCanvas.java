@@ -13,7 +13,12 @@ public class IsolationCanvas extends Canvas {
         super(renderer);
         setPreferredSize(new Dimension(WIDTH, 0));
         TitledBorder border = new TitledBorder("Карантин");
-        border.setTitleFont(Fonts.H1.getFont());
+        border.setTitleFont(Fonts.H2.getFont());
         setBorder(border);
+    }
+
+    @Override
+    public int getWidth() {
+        return WIDTH;
     }
 }

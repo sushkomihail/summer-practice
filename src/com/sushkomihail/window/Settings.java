@@ -1,6 +1,5 @@
 package com.sushkomihail.window;
 
-import com.sushkomihail.simulation.Simulation;
 import com.sushkomihail.ui.*;
 
 import javax.swing.*;
@@ -9,6 +8,7 @@ import java.awt.*;
 
 public class Settings extends JPanel {
     private final MaskedTextField populationText = new MaskedTextField(3, "200", Mask.INT.getMask());
+    private final MaskedTextField startInfectedUnitsCountText = new MaskedTextField(1, "1", Mask.INT.getMask());
     private final JCheckBox isIsolationUsedBox = new JCheckBox("Карантин", false);
     private final ProbabilitySlider isolationProbabilitySlider = new ProbabilitySlider(0.7f);
     private final JCheckBox isDistancingUsedBox = new JCheckBox("Дистанцирование", false);
@@ -16,7 +16,7 @@ public class Settings extends JPanel {
     private final VirusSettings virusSettings = new VirusSettings();
     private final UnitSettings unitSettings = new UnitSettings();
 
-    public Settings(Window window, Simulation simulation) {
+    public Settings(MainWindow window) {
         TitledBorder border = new TitledBorder("Настройки симуляции");
         border.setTitleFont(Fonts.H1.getFont());
         setBorder(border);
@@ -26,6 +26,9 @@ public class Settings extends JPanel {
 
         container.add(new JLabel("Популяция"));
         container.add(populationText);
+
+        container.add(new JLabel("Начальное количество больных"));
+        container.add(startInfectedUnitsCountText);
 
         window.setIsolationCanvasVisibility(isIsolationUsedBox.isSelected());
         isIsolationUsedBox.addItemListener(e -> window.setIsolationCanvasVisibility(isIsolationUsedBox.isSelected()));
@@ -44,15 +47,15 @@ public class Settings extends JPanel {
 
         UiExtensions.setAlignmentXForAllComponentsInContainer(container, LEFT_ALIGNMENT);
 
-        JButton simulationControlButton = new JButton("Старт");
-        simulationControlButton.addActionListener(l -> simulation.manage(simulationControlButton));
-        container.add(simulationControlButton);
-
         add(container, BorderLayout.NORTH);
     }
 
     public int getPopulation() {
         return Integer.parseInt(populationText.getText());
+    }
+
+    public int getStartInfectedUnitsCount() {
+        return Integer.parseInt(startInfectedUnitsCountText.getText());
     }
 
     public boolean isIsolationUsed() {

@@ -68,13 +68,25 @@ public class Unit implements RenderObject {
         this.movementCanvas = movementCanvas;
     }
 
+    private Vector clampPosition(int x, int y) {
+        if (x != movementCanvas.getWidth()) {
+            x = (x + movementCanvas.getWidth()) % movementCanvas.getWidth();
+        }
+
+        if (y != movementCanvas.getHeight()) {
+            y = (y + movementCanvas.getHeight()) % movementCanvas.getHeight();
+        }
+
+        return new Vector(x, y);
+    }
+
     private Vector calculateNextPosition() {
         float angleInRadians = Random.getFloat(0, (float) (2 * Math.PI));
         int dx = (int) (Math.cos(angleInRadians) * MAX_MOVE_DELTA);
         int dy = (int) (Math.sin(angleInRadians) * MAX_MOVE_DELTA);
-        int x = (int) (position.getX() + dx + movementCanvas.getWidth()) % movementCanvas.getWidth();
-        int y = (int) (position.getY() + dy + movementCanvas.getHeight()) % movementCanvas.getHeight();
-        return new Vector(x, y);
+        int x = (int) (position.getX() + dx);
+        int y = (int) (position.getY() + dy);
+        return clampPosition(x, y);
     }
 
     public void applySettings(UnitSettings settings) {

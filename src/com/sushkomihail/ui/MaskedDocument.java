@@ -23,8 +23,7 @@ public class MaskedDocument extends PlainDocument {
 
     @Override
     public void insertString(int offset, String str, AttributeSet a) throws BadLocationException {
-        String newStr = getText(0, getLength()) + str + "0";
-        System.out.println(newStr);
+        String newStr = getText(0, getLength()) + str;
         if (str != null && str.length() + getLength() <= maxLength && isStringCorrect(newStr)) {
             super.insertString(offset, str, a);
         }

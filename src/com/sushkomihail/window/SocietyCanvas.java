@@ -9,7 +9,7 @@ public class SocietyCanvas extends Canvas {
     public SocietyCanvas(Renderer renderer) {
         super(renderer);
         TitledBorder border = new TitledBorder("Общество");
-        border.setTitleFont(Fonts.H1.getFont());
+        border.setTitleFont(Fonts.H2.getFont());
         setBorder(border);
     }
 }

@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Fixed units infection in society area by units in isolation area">
+    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Fixed masked input for text fields">
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/graphics/Chart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/graphics/ChartData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Statistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/UnitTitle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/MainWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/MenuBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/StatisticsView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/math/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/math/Vector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/FixedLengthDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedDocument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/Mask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/MaskedDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/IsolationCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/IsolationCanvas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/UnitSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/UnitSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/VirusSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/VirusSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/SocietyCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/SocietyCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/Window.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,6 +62,40 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\AltSTU\summer_practice\src" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Graphic$EpidemicSpreadGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sushkomihail.simulation.Graphic$EpidemicSpreadGraph" />
+      <module name="summer_practice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sushkomihail.simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sushkomihail.main.Main" />
+      <module name="summer_practice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sushkomihail.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Graphic$EpidemicSpreadGraph" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -115,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718704192938</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed masked input for text fields">
+      <created>1718728056299</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718728056299</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +185,7 @@
     <MESSAGE value="Added isolation area" />
     <MESSAGE value="Added distancing" />
     <MESSAGE value="Fixed units infection in society area by units in isolation area" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed units infection in society area by units in isolation area" />
+    <MESSAGE value="Fixed masked input for text fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed masked input for text fields" />
   </component>
 </project>
