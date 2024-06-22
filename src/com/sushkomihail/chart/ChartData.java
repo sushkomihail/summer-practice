@@ -1,4 +1,4 @@
-package com.sushkomihail.graphics;
+package com.sushkomihail.chart;
 
 import java.util.ArrayList;
 import java.util.List;

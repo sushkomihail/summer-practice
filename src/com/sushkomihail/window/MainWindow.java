@@ -14,10 +14,12 @@ public class MainWindow extends JFrame {
 
     private final Canvas societyCanvas = new SocietyCanvas(new Renderer());
     private final Canvas isolationCanvas = new IsolationCanvas(new Renderer());
-    private final StatisticsView statisticsView = new StatisticsView();
+    private final StatisticsView statisticsView;
     private final Settings settings = new Settings(this);
 
-    public MainWindow(Simulation simulation) {
+    public MainWindow(Simulation simulation, JFrame chartWindow) {
+        statisticsView = new StatisticsView(chartWindow);
+
         setTitle("Симуляция эпидемии");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(WIDTH, HEIGHT);

@@ -14,7 +14,7 @@ public class StatisticsView extends JPanel {
     private final JLabel recoveredCountLabel = new JLabel(UnitTitle.RECOVERED.getTitle("х") + "    0");
     private final JButton chartButton = new JButton("График распространения вируса");
 
-    public StatisticsView() {
+    public StatisticsView(JFrame chartWindow) {
         TitledBorder border = new TitledBorder("Статистика");
         border.setTitleFont(Fonts.H2.getFont());
         setBorder(border);
@@ -27,8 +27,14 @@ public class StatisticsView extends JPanel {
         dataContainer.add(recoveredCountLabel);
 
         chartButton.setEnabled(false);
+        chartButton.addActionListener(l -> chartWindow.setVisible(true));
+
         add(chartButton, BorderLayout.CENTER);
         add(dataContainer, BorderLayout.WEST);
+    }
+
+    public JButton getChartButton() {
+        return chartButton;
     }
 
     private void updateStatisticsValueLabelText(JLabel label, String title, int statisticsValue) {

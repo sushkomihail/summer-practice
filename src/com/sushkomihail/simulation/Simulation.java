@@ -1,21 +1,20 @@
 package com.sushkomihail.simulation;
 
-import com.sushkomihail.graphics.Chart;
+import com.sushkomihail.chart.Chart;
+import com.sushkomihail.chart.ChartWindow;
 import com.sushkomihail.math.Random;
-import com.sushkomihail.unit.InfectedState;
-import com.sushkomihail.unit.UninfectedState;
-import com.sushkomihail.unit.Unit;
+import com.sushkomihail.unit.*;
 import com.sushkomihail.virus.Virus;
 import com.sushkomihail.window.Settings;
 import com.sushkomihail.window.MainWindow;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
 public class Simulation implements Runnable {
     private static final int TARGET_FPS = 60;
     private static final float UPDATE_INTERVAL = 1000000000.0f / TARGET_FPS;
+    private static final float CHART_UPDATE_INTERVAL = 0.5f;
 
     private final Virus virus = new Virus();
     private final Unit unit;
@@ -26,20 +25,22 @@ public class Simulation implements Runnable {
     private boolean isDistancingUsed = false;
     private float distancingProbability = 0.7f;
 
-    private final MainWindow window;
+    private final ChartWindow chartWindow = new ChartWindow();
+    private final MainWindow window = new MainWindow(this, chartWindow);
+    private final Chart chart = new Chart(chartWindow.getChartCanvas());
     private final ArrayList<Unit> units = new ArrayList<>();
     private final Statistics statistics = new Statistics();
-    private Chart chart;
     private Thread simulationThread;
+    private float elapsedChartUpdateInterval;
     private boolean isRunning;
     private boolean hasBeenReset = true;
 
-    private float c;
-
     public Simulation() {
-        window = new MainWindow(this);
+        chartWindow.getLegend().addDesignation(UnitColor.UNINFECTED.getColor(), UnitTitle.UNINFECTED.getTitle("е"));
+        chartWindow.getLegend().addDesignation(UnitColor.INFECTED.getColor(), UnitTitle.INFECTED.getTitle("е"));
+        chartWindow.getLegend().addDesignation(UnitColor.RECOVERED.getColor(), UnitTitle.RECOVERED.getTitle("е"));
+
         unit = new Unit(window.getSocietyCanvas());
-        //chart = new Chart(window.getStatisticsView().getChartCanvas());
     }
 
     private void applySettings(Settings settings) {
@@ -91,18 +92,19 @@ public class Simulation implements Runnable {
     }
 
     private void updateChart(float deltaTime) {
-        c += deltaTime;
+        elapsedChartUpdateInterval += deltaTime;
 
-        if (c >= 0.5f) {
-            chart.addDataValue(Color.BLACK, statistics.getUninfectedCount());
-            chart.addDataValue(Color.RED, statistics.getInfectedCount());
-            chart.addDataValue(Color.BLUE, statistics.getRecoveredCount());
-            c = 0;
+        if (elapsedChartUpdateInterval >= CHART_UPDATE_INTERVAL) {
+            chart.getData(UnitColor.UNINFECTED.getColor()).add(statistics.getUninfectedCount());
+            chart.getData(UnitColor.INFECTED.getColor()).add(statistics.getInfectedCount());
+            chart.getData(UnitColor.RECOVERED.getColor()).add(statistics.getRecoveredCount());
+            elapsedChartUpdateInterval = 0;
         }
     }
 
     private void start() {
         if (hasBeenReset) {
+            window.getStatisticsView().getChartButton().setEnabled(true);
             applySettings(window.getSettings());
             createPopulation();
         }
@@ -131,7 +133,7 @@ public class Simulation implements Runnable {
         }
 
         statistics.update(units);
-        //updateChart(deltaTime);
+        updateChart(deltaTime);
         window.getStatisticsView().update(statistics);
     }
 
@@ -148,7 +150,7 @@ public class Simulation implements Runnable {
             window.getIsolationCanvas().repaint();
         }
 
-        //window.getStatisticsView().getChartCanvas().repaint();
+        chartWindow.getChartCanvas().repaint();
     }
 
     public void control(JMenuItem controlItem) {
@@ -168,6 +170,7 @@ public class Simulation implements Runnable {
         units.clear();
         statistics.clear();
         window.getStatisticsView().update(statistics);
+        window.getStatisticsView().getChartButton().setEnabled(false);
         window.getSocietyCanvas().getRenderer().clear();
         window.getIsolationCanvas().getRenderer().clear();
         repaint();
