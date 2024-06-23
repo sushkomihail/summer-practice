@@ -5,7 +5,6 @@ import com.sushkomihail.chart.ChartWindow;
 import com.sushkomihail.math.Random;
 import com.sushkomihail.unit.*;
 import com.sushkomihail.virus.Virus;
-import com.sushkomihail.window.Settings;
 import com.sushkomihail.window.MainWindow;
 
 import javax.swing.*;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 public class Simulation implements Runnable {
     private static final int TARGET_FPS = 60;
     private static final float UPDATE_INTERVAL = 1000000000.0f / TARGET_FPS;
-    private static final float CHART_UPDATE_INTERVAL = 0.5f;
 
     private final Virus virus = new Virus();
     private final Unit unit;
@@ -26,7 +24,7 @@ public class Simulation implements Runnable {
     private float distancingProbability = 0.7f;
 
     private final ChartWindow chartWindow = new ChartWindow();
-    private final MainWindow window = new MainWindow(this, chartWindow);
+    private final MainWindow mainWindow = new MainWindow(this, chartWindow);
     private final Chart chart = new Chart(chartWindow.getChartCanvas());
     private final ArrayList<Unit> units = new ArrayList<>();
     private final Statistics statistics = new Statistics();
@@ -40,18 +38,18 @@ public class Simulation implements Runnable {
         chartWindow.getLegend().addDesignation(UnitColor.INFECTED.getColor(), UnitTitle.INFECTED.getTitle("е"));
         chartWindow.getLegend().addDesignation(UnitColor.RECOVERED.getColor(), UnitTitle.RECOVERED.getTitle("е"));
 
-        unit = new Unit(window.getSocietyCanvas());
+        unit = new Unit(mainWindow.getSocietyCanvas());
     }
 
-    private void applySettings(Settings settings) {
-        virus.applySettings(settings.getVirusSettings());
-        unit.applySettings(settings.getUnitSettings());
-        population = settings.getPopulation();
-        startInfectedUnitsCount = settings.getStartInfectedUnitsCount();
-        isIsolationUsed = settings.isIsolationUsed();
-        isolationProbability = settings.getIsolationProbability();
-        isDistancingUsed = settings.isDistancingUsed();
-        distancingProbability = settings.getDistancingProbability();
+    private void applySettings() {
+        virus.applySettings(mainWindow.getSettings().getVirusSettings());
+        unit.applySettings(mainWindow.getSettings().getUnitSettings());
+        population = mainWindow.getSettings().getPopulation();
+        startInfectedUnitsCount = mainWindow.getSettings().getStartInfectedUnitsCount();
+        isIsolationUsed = mainWindow.getSettings().isIsolationUsed();
+        isolationProbability = mainWindow.getSettings().getIsolationProbability();
+        isDistancingUsed = mainWindow.getSettings().isDistancingUsed();
+        distancingProbability = mainWindow.getSettings().getDistancingProbability();
     }
 
     private void trySetUsingDistancing(Unit unit) {
@@ -79,37 +77,29 @@ public class Simulation implements Runnable {
         }
     }
 
-    private void spreadInfection(float deltaTime, InfectedState infectedUnit) {
-        if (infectedUnit.isIsolated()) {
+    private void tryUpdateChart(float deltaTime) {
+        elapsedChartUpdateInterval += deltaTime;
+
+        if (elapsedChartUpdateInterval < Chart.UPDATE_INTERVAL) {
             return;
         }
 
-        for (Unit unit : units) {
-            if (unit.getState() instanceof UninfectedState) {
-                infectedUnit.tryInfect(deltaTime, unit);
-            }
-        }
-    }
-
-    private void updateChart(float deltaTime) {
-        elapsedChartUpdateInterval += deltaTime;
-
-        if (elapsedChartUpdateInterval >= CHART_UPDATE_INTERVAL) {
-            chart.getData(UnitColor.UNINFECTED.getColor()).add(statistics.getUninfectedCount());
-            chart.getData(UnitColor.INFECTED.getColor()).add(statistics.getInfectedCount());
-            chart.getData(UnitColor.RECOVERED.getColor()).add(statistics.getRecoveredCount());
-            elapsedChartUpdateInterval = 0;
-        }
+        chart.getData(UnitColor.UNINFECTED.getColor()).add(statistics.getUninfectedCount());
+        chart.getData(UnitColor.INFECTED.getColor()).add(statistics.getInfectedCount());
+        chart.getData(UnitColor.RECOVERED.getColor()).add(statistics.getRecoveredCount());
+        elapsedChartUpdateInterval = 0;
     }
 
     private void start() {
         if (hasBeenReset) {
-            window.getStatisticsView().getChartButton().setEnabled(true);
-            applySettings(window.getSettings());
+            mainWindow.getSettings().setEnabled(false);
+            mainWindow.getStatisticsView().getChartButton().setEnabled(true);
+            applySettings();
             createPopulation();
         }
 
         isRunning = true;
+        hasBeenReset = false;
 
         if (simulationThread == null || simulationThread.isInterrupted()) {
             simulationThread = new Thread(this);
@@ -124,57 +114,76 @@ public class Simulation implements Runnable {
 
             if (unit.getState() instanceof InfectedState infectedUnit) {
                 if (isIsolationUsed) {
-                    infectedUnit.tryIsolate(deltaTime, window.getIsolationCanvas(), isolationProbability);
+                    infectedUnit.tryIsolate(deltaTime, mainWindow.getIsolationCanvas(), isolationProbability);
                 }
 
-                spreadInfection(deltaTime, infectedUnit);
+                if (!infectedUnit.isIsolated()) {
+                    infectedUnit.tryInfect(deltaTime, units);
+                }
+
                 infectedUnit.recover(deltaTime);
             }
         }
 
         statistics.update(units);
-        updateChart(deltaTime);
-        window.getStatisticsView().update(statistics);
+        tryUpdateChart(deltaTime);
+        mainWindow.getStatisticsView().update(statistics);
+
+        if (statistics.getInfectedCount() == 0) {
+            stop();
+            mainWindow.getMenu().getControlItem().setText("Старт");
+            mainWindow.getMenu().getControlItem().setEnabled(false);
+            JOptionPane.showMessageDialog(mainWindow, "Симуляция завершена!");
+        }
     }
 
     private void stop() {
         isRunning = false;
-        hasBeenReset = false;
         simulationThread.interrupt();
     }
 
     private void repaint() {
-        window.getSocietyCanvas().repaint();
+        mainWindow.getSocietyCanvas().repaint();
 
         if (isIsolationUsed) {
-            window.getIsolationCanvas().repaint();
+            mainWindow.getIsolationCanvas().repaint();
         }
 
         chartWindow.getChartCanvas().repaint();
     }
 
-    public void control(JMenuItem controlItem) {
+    public void control() {
         if (isRunning) {
             stop();
-            controlItem.setText("Старт");
+            mainWindow.getMenu().getControlItem().setText("Старт");
         } else {
             start();
-            controlItem.setText("Стоп");
+            mainWindow.getMenu().getControlItem().setText("Стоп");
         }
     }
 
-    public void reset(JMenuItem controlItem) {
+    public void reset() {
         isRunning = false;
         hasBeenReset = true;
+
         simulationThread.interrupt();
+
         units.clear();
         statistics.clear();
-        window.getStatisticsView().update(statistics);
-        window.getStatisticsView().getChartButton().setEnabled(false);
-        window.getSocietyCanvas().getRenderer().clear();
-        window.getIsolationCanvas().getRenderer().clear();
+        chart.clearDataMap();
+
+        mainWindow.getSettings().setEnabled(true);
+
+        mainWindow.getSocietyCanvas().getRenderer().clear();
+        mainWindow.getIsolationCanvas().getRenderer().clear();
+
+        mainWindow.getMenu().getControlItem().setText("Старт");
+        mainWindow.getMenu().getControlItem().setEnabled(true);
+
+        mainWindow.getStatisticsView().update(statistics);
+        mainWindow.getStatisticsView().getChartButton().setEnabled(false);
+
         repaint();
-        controlItem.setText("Старт");
     }
 
     @Override

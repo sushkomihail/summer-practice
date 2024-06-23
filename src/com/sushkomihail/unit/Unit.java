@@ -69,11 +69,11 @@ public class Unit implements RenderObject {
     }
 
     private Vector clampPosition(int x, int y) {
-        if (x != movementCanvas.getWidth()) {
+        if (x != movementCanvas.getWidth() && x != 0) {
             x = (x + movementCanvas.getWidth()) % movementCanvas.getWidth();
         }
 
-        if (y != movementCanvas.getHeight()) {
+        if (y != movementCanvas.getHeight() && y != 0) {
             y = (y + movementCanvas.getHeight()) % movementCanvas.getHeight();
         }
 

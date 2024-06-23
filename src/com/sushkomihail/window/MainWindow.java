@@ -14,8 +14,9 @@ public class MainWindow extends JFrame {
 
     private final Canvas societyCanvas = new SocietyCanvas(new Renderer());
     private final Canvas isolationCanvas = new IsolationCanvas(new Renderer());
-    private final StatisticsView statisticsView;
     private final Settings settings = new Settings(this);
+    private final MenuBar menu;
+    private final StatisticsView statisticsView;
 
     public MainWindow(Simulation simulation, JFrame chartWindow) {
         statisticsView = new StatisticsView(chartWindow);
@@ -27,7 +28,8 @@ public class MainWindow extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        setJMenuBar(new MenuBar(simulation));
+        menu = new MenuBar(simulation);
+        setJMenuBar(menu);
 
         JPanel simulationContainer = new JPanel();
         TitledBorder simulationBorder = new TitledBorder("Симуляция");
@@ -49,6 +51,10 @@ public class MainWindow extends JFrame {
 
     public Canvas getIsolationCanvas() {
         return isolationCanvas;
+    }
+
+    public MenuBar getMenu() {
+        return menu;
     }
 
     public StatisticsView getStatisticsView() {

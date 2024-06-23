@@ -23,4 +23,9 @@ public class ProbabilitySlider extends JPanel {
     public float getValue() {
         return slider.getValue() / 10.0f;
     }
+
+    @Override
+    public void setEnabled(boolean isEnabled) {
+        UiExtensions.setEnabledComponentsOf(this, isEnabled);
+    }
 }

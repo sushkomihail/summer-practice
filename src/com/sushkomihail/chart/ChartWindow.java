@@ -21,7 +21,7 @@ public class ChartWindow extends JFrame {
         setLocationRelativeTo(null);
 
         JPanel container = new JPanel();
-        TitledBorder border = new TitledBorder("Изменения с течением времени");
+        TitledBorder border = new TitledBorder("Изменение количества юнитов с течением времени");
         border.setTitleFont(Fonts.H2.getFont());
         container.setBorder(border);
         container.setLayout(new BorderLayout());

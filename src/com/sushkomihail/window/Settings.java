@@ -7,6 +7,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class Settings extends JPanel {
+    private final JPanel container = new JPanel();
     private final MaskedTextField populationText = new MaskedTextField(3, "200", Mask.INT.getMask());
     private final MaskedTextField startInfectedUnitsCountText = new MaskedTextField(1, "1", Mask.INT.getMask());
     private final JCheckBox isIsolationUsedBox = new JCheckBox("Карантин", false);
@@ -21,7 +22,7 @@ public class Settings extends JPanel {
         border.setTitleFont(Fonts.H1.getFont());
         setBorder(border);
         setLayout(new BorderLayout());
-        JPanel container = new JPanel();
+
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 
         container.add(new JLabel("Популяция"));
@@ -80,5 +81,12 @@ public class Settings extends JPanel {
 
     public UnitSettings getUnitSettings() {
         return unitSettings;
+    }
+
+    @Override
+    public void setEnabled(boolean isEnabled) {
+        UiExtensions.setEnabledComponentsOf(container, isEnabled);
+        UiExtensions.setEnabledComponentsOf(virusSettings, isEnabled);
+        UiExtensions.setEnabledComponentsOf(unitSettings, isEnabled);
     }
 }

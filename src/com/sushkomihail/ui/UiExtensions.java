@@ -11,6 +11,12 @@ public class UiExtensions {
         }
     }
 
+    public static void setEnabledComponentsOf(Container container, boolean isEnabled) {
+        for (Component component : container.getComponents()) {
+            component.setEnabled(isEnabled);
+        }
+    }
+
     public static void trySetSystemTheme() {
         try {
             String systemThemeName = UIManager.getSystemLookAndFeelClassName();

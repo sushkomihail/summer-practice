@@ -7,12 +7,11 @@ import com.sushkomihail.virus.Virus;
 import com.sushkomihail.window.Canvas;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class InfectedState implements UnitState {
-    private static final Color UNIT_COLOR = new Color(214, 60, 51);
     private static final Color INFECTION_AREA_COLOR = new Color(255, 115, 115, 100);
-    private static final Color NON_ISOLATED_UNIT_COLOR = new Color(214, 181, 51);
-    private static final Color NON_ISOLATED_INFECTION_AREA_COLOR = new Color(255, 222, 115, 100);
+    private static final Color NON_ISOLATED_INFECTION_AREA_COLOR = new Color(255, 220, 98, 100);
 
     private final Unit unit;
     private final Virus virus;
@@ -61,23 +60,29 @@ public class InfectedState implements UnitState {
         return false;
     }
 
-    public void tryInfect(float deltaTime, Unit unit) {
+    public void tryInfect(float deltaTime, ArrayList<Unit> units) {
         if (!isInfectionIntervalElapsed(deltaTime)) {
             return;
         }
 
-        if (unit.isUsingDistancing() && this.unit.isUsingDistancing()) {
-            return;
-        }
+        for (Unit unit : units) {
+            if (!(unit.getState() instanceof UninfectedState)) {
+                continue;
+            }
 
-        float distanceToCarrier = Vector.getDistance(this.unit.getPosition(), unit.getPosition());
+            if (unit.isUsingDistancing() && this.unit.isUsingDistancing()) {
+                continue;
+            }
 
-        if (distanceToCarrier > virus.getInfectionRadius()) {
-            return;
-        }
+            float distanceToCarrier = Vector.getDistance(this.unit.getPosition(), unit.getPosition());
 
-        if (Random.isEventHappened(virus.getInfectionProbability())) {
-            unit.setState(new InfectedState(unit, virus));
+            if (distanceToCarrier > virus.getInfectionRadius()) {
+                continue;
+            }
+
+            if (Random.isEventHappened(virus.getInfectionProbability())) {
+                unit.setState(new InfectedState(unit, virus));
+            }
         }
     }
 
@@ -91,11 +96,11 @@ public class InfectedState implements UnitState {
 
     @Override
     public void render(Graphics2D graphics) {
-        Color unitColor = UNIT_COLOR;
+        Color unitColor = UnitColor.INFECTED.getColor();
         Color infectionAreaColor = INFECTION_AREA_COLOR;
 
         if (!hasIsolationAttempt && !isIsolated) {
-            unitColor = NON_ISOLATED_UNIT_COLOR;
+            unitColor = UnitColor.NON_ISOLATED.getColor();
             infectionAreaColor = NON_ISOLATED_INFECTION_AREA_COLOR;
         }
 

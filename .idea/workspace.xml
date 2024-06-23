@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added the ability to pause the simulation">
-      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/ChartLegend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/ChartWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/LegendDesignation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/UnitColor.java" afterDir="false" />
+    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added chart of epidemic progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/graphics/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/Chart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/graphics/ChartData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/ChartData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/chart/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/Chart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/chart/ChartWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/ChartWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/chart/LegendDesignation.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/ProbabilitySlider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/ProbabilitySlider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/UiExtensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/UiExtensions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/InfectedState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/InfectedState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/RecoveredState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/RecoveredState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/UninfectedState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/UninfectedState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/UnitColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/UnitColor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/StatisticsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/StatisticsView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718992198052</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added chart of epidemic progress">
+      <created>1719087434603</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719087434603</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +202,7 @@
     <MESSAGE value="Fixed units infection in society area by units in isolation area" />
     <MESSAGE value="Fixed masked input for text fields" />
     <MESSAGE value="Added the ability to pause the simulation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the ability to pause the simulation" />
+    <MESSAGE value="Added chart of epidemic progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added chart of epidemic progress" />
   </component>
 </project>

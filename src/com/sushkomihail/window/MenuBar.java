@@ -5,20 +5,22 @@ import com.sushkomihail.simulation.Simulation;
 import javax.swing.*;
 
 public class MenuBar extends JMenuBar {
+    JMenuItem controlItem = new JMenuItem("Старт");
+
     public MenuBar(Simulation simulation) {
         JMenu controlMenu = new JMenu("Управление");
 
-        JMenuItem controlItem = new JMenuItem("Старт");
-        controlItem.addActionListener(l -> simulation.control(controlItem));
+        controlItem.addActionListener(l -> simulation.control());
 
         JMenuItem resetItem = new JMenuItem("Сбросить");
-        resetItem.addActionListener(l -> simulation.reset(controlItem));
+        resetItem.addActionListener(l -> simulation.reset());
 
         controlMenu.add(controlItem);
         controlMenu.add(resetItem);
         add(controlMenu);
+    }
 
-        JMenu aboutMenu = new JMenu("О программме");
-        add(aboutMenu);
+    public JMenuItem getControlItem() {
+        return controlItem;
     }
 }

@@ -12,7 +12,7 @@ public class StatisticsView extends JPanel {
     private final JLabel uninfectedCountLabel = new JLabel(UnitTitle.UNINFECTED.getTitle("х") + "    0");
     private final JLabel infectedCountLabel = new JLabel(UnitTitle.INFECTED.getTitle("х") + "    0");
     private final JLabel recoveredCountLabel = new JLabel(UnitTitle.RECOVERED.getTitle("х") + "    0");
-    private final JButton chartButton = new JButton("График распространения вируса");
+    private final JButton chartButton = new JButton("График развития эпидемии");
 
     public StatisticsView(JFrame chartWindow) {
         TitledBorder border = new TitledBorder("Статистика");

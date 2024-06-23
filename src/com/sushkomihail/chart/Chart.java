@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.function.UnaryOperator;
 
 public class Chart implements RenderObject {
+    public static final float UPDATE_INTERVAL = 0.5f;
+
     private final HashMap<Color, ChartData> dataMap = new HashMap<>();
     private final Canvas canvas;
 
@@ -39,6 +41,10 @@ public class Chart implements RenderObject {
         }
 
         return max;
+    }
+
+    public void clearDataMap() {
+        dataMap.clear();
     }
 
     @Override
