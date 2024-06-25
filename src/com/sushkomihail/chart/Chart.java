@@ -51,7 +51,7 @@ public class Chart implements RenderObject {
     public void render(Graphics2D graphics) {
         List<Color> keys = new ArrayList<>(dataMap.keySet());
 
-        if (keys.size() == 0) {
+        if (keys.isEmpty()) {
             return;
         }
 

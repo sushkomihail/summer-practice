@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="summer_practice:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Added chart of epidemic progress">
+    <list default="true" id="82df8b10-c4bf-4530-ae23-4b90b4f9cad1" name="Changes" comment="Fixed chart display, improved convenient of interface">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/summer_practice_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/chart/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/Chart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/chart/ChartWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/chart/ChartWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/chart/LegendDesignation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/simulation/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/ProbabilitySlider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/ProbabilitySlider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/ui/UiExtensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/ui/UiExtensions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/InfectedState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/InfectedState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/RecoveredState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/RecoveredState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/UninfectedState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/UninfectedState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/unit/UnitColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/unit/UnitColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/MenuBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sushkomihail/window/StatisticsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sushkomihail/window/StatisticsView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +35,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2gjaQnqcOYN1OLg0AsHAzrCcbkM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -56,7 +52,19 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Java/GameEngine&quot;
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/AltSTU/summer_practice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -98,6 +106,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -106,6 +122,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716213431638</updated>
+      <workItem from="1719224945467" duration="3094000" />
+      <workItem from="1719290754873" duration="7685000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1716213471933</created>
@@ -177,8 +195,18 @@
       <option name="project" value="LOCAL" />
       <updated>1719087434603</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed chart display, improved convenient of interface">
+      <created>1719158971648</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719158971648</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -203,6 +231,11 @@
     <MESSAGE value="Fixed masked input for text fields" />
     <MESSAGE value="Added the ability to pause the simulation" />
     <MESSAGE value="Added chart of epidemic progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added chart of epidemic progress" />
+    <MESSAGE value="Fixed chart display, improved convenient of interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed chart display, improved convenient of interface" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
